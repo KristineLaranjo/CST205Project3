@@ -1,4 +1,5 @@
 import speech_recognition
+import Scraper
 
 recognizer = speech_recognition.Recognizer()
 
@@ -21,17 +22,20 @@ print command
 i = True
 while i == True:
     if command == "smile":
-        i = False
-        print ":)"
+        print Scraper.getimage("smiling-face-with-open-mouth-and-smiling-eyes")
+        print "\n:)"
     elif command == "sad":
         i = False
-        print ":("
+        print Scraper.getimage("crying-face")
+        print "\n:("
     elif command == "excited":
         i = False
-        print ":O"
+        print Scraper.getimage("jack-o-lantern")
+        print "\n:O"
     elif command == "upset":
         i = False
-        print ">:("
+        print Scraper.getimage("angry-face")
+        print "\n>:("
     else:
         print command
         print "Could not recognize: Please Try Again"
