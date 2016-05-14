@@ -20,8 +20,11 @@ class mikesButtons:
         #self.picButton = Button(frame, text = "take a picture", command = self.picButton)
         #self.picButton.pack(side = LEFT)
         
-        self.speechButton = Button(frame, text = "voice command", command = self.speechButton)
-        self.speechButton.pack(side = LEFT)
+        self.speech1Button = Button(frame, text = "voice web scraper", command = self.speech1Button)
+        self.speech1Button.pack(side = LEFT)
+        
+        self.speech2Button = Button(frame, text = "voice command", command = self.speech2Button)
+        self.speech2Button.pack(side = LEFT)
         
         self.emotionButton = Button(frame, text = "prototype", command = self.emotionButton)
         self.emotionButton.pack(side = LEFT)
@@ -33,8 +36,11 @@ class mikesButtons:
     def runButton(self):
         execfile("facedetection.py")
     
-    def speechButton(self):
+    def speech1Button(self):
         execfile("speech.py")
+    
+    def speech2Button(self):
+        execfile("speech_face_detection.py")
     
     def emotionButton(self):
         execfile("face_detection.py")
