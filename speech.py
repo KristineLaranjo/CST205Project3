@@ -20,6 +20,7 @@ print 'Say an emotion'
 command = listen()
 print command
 i = True
+
 while i == True:
     if command == "smile":
         print Scraper.getimage("smiling-face-with-open-mouth-and-smiling-eyes")
@@ -40,4 +41,3 @@ while i == True:
         print command
         print "Could not recognize: Please Try Again"
         command = listen()
-
