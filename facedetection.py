@@ -1,6 +1,11 @@
 import cv2
 import numpy as np
+import Tkinter as tk
+from PIL import Image, ImageTk
 
+# Loads the picture
+fileName = askopenfilename(parent=root)
+emoji = cv2.imread(fileName, -1)#"./Emojis/lmfao.png"
 
 # Created the cascades for the face and eyes
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -47,44 +52,7 @@ while True:
         
         for(mx,my,mw,mh) in mouth:
             cv2.rectangle(roi_gray, (mx,my), (mx+mw,my+mh), (0,255,0), 2)
-        
-        '''
-        if(len(eyes) == 1):
-            # Loads the picture
-            emoji = cv2.imread("./Emojis/smirk.png", -1)
-        
-            # Create the mask for emoji
-            orig_mask = emoji[:,:,3]
-
-            # Create the inverted mask for the emoji
-            orig_mask_inv = cv2.bitwise_not(orig_mask)
-
-            # Convert emoji to BGR
-            # and save the original emoji size
-            emoji = emoji[:,:,0:3]
-            origEmojiHeight, origEmojiWidth = emoji.shape[:2]
-                  
-            # Resizes the emoji, mask, and mask_inv according to the face
-            emoji = cv2.resize(emoji, (w,h), interpolation = cv2.INTER_AREA)
-            mask = cv2.resize(orig_mask, (w,h), interpolation = cv2.INTER_AREA)
-            mask_inv = cv2.resize(orig_mask_inv, (w,h), interpolation = cv2.INTER_AREA)
-
-            # Sets the region of interest of the face
-            roi = roi_color[0:w, 0:h]
-        
-            # Creates the background (face) and foreground (emoji)
-            roi_bg = cv2.bitwise_and(roi,roi, mask = mask_inv)
-            roi_fg = cv2.bitwise_and(emoji,emoji, mask = mask)
-        
-            # Overlays emoji to face
-            dst = cv2.add(roi_bg,roi_fg)
-        
-            # Sets the layer back to the region of interest
-            roi_color[0:h, 0:w] = dst
-        
-        elif(
-        '''
-    # Displays the the resulting frame      
+            # Displays the the resulting frame
     cv2.imshow('Video',frame)
 
     # Quit
